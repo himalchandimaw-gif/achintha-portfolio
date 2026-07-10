@@ -24,3 +24,32 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.gsap-card,
+.gsap-fade-up,
+.hero-bg,
+.about-image img {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+.accordion-card {
+  will-change: flex, transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+.pin-card {
+  flex: 1 1 0%;
+  will-change: flex-grow, transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+.mobile-pin-card {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
