@@ -24,6 +24,24 @@ const works = [
     description: "A smooth story-driven edit with clean structure and emotion.",
     vimeoUrl: "https://player.vimeo.com/video/1129230015",
   },
+  {
+    title: "Short Form Edit",
+    category: "Short Form",
+    description: "Fast-paced vertical content designed for attention and retention.",
+    vimeoUrl: "https://player.vimeo.com/video/1142958964",
+  },
+  {
+    title: "Personal Brand Edit",
+    category: "Brand Content",
+    description: "Clean personal brand visuals with strong structure and premium feel.",
+    vimeoUrl: "https://player.vimeo.com/video/1089457410",
+  },
+  {
+    title: "Social Media Edit",
+    category: "Content Creation",
+    description: "Modern social media content edited for clarity, flow and engagement.",
+    vimeoUrl: "https://player.vimeo.com/video/1142959111",
+  },
 ];
 
 export default function SelectedWorks() {
@@ -39,13 +57,13 @@ export default function SelectedWorks() {
     const ctx = gsap.context(() => {
       mm = gsap.matchMedia();
 
-      // Mobile only pinned scroll effect
+      // Mobile only pinned card scroll effect
       mm.add("(max-width: 767px)", () => {
         const cards = gsap.utils.toArray<HTMLElement>(".mobile-pin-card");
 
         gsap.set(cards, {
           autoAlpha: 0,
-          y: 40,
+          y: 45,
           scale: 0.94,
         });
 
@@ -60,9 +78,10 @@ export default function SelectedWorks() {
             trigger: mobilePinRef.current,
             pin: true,
             start: "top top",
-            end: "+=1000",
+            end: () => `+=${works.length * 430}`,
             scrub: 1,
             anticipatePin: 1,
+            invalidateOnRefresh: true,
             snap: {
               snapTo: "labels",
               duration: { min: 0.2, max: 1 },
@@ -72,23 +91,26 @@ export default function SelectedWorks() {
           },
         });
 
-        tl.addLabel("card-1")
-          .to({}, { duration: 0.3 })
+        cards.forEach((card, index) => {
+          tl.addLabel(`card-${index + 1}`);
 
-          .addLabel("card-2")
-          .to(
-            cards[0],
+          if (index === 0) {
+            tl.to({}, { duration: 0.3 });
+            return;
+          }
+
+          tl.to(
+            cards[index - 1],
             {
               autoAlpha: 0,
-              y: -40,
+              y: -45,
               scale: 0.94,
               duration: 0.6,
               ease: "power2.out",
             },
-            "card-2"
-          )
-          .to(
-            cards[1],
+            `card-${index + 1}`
+          ).to(
+            card,
             {
               autoAlpha: 1,
               y: 0,
@@ -96,38 +118,20 @@ export default function SelectedWorks() {
               duration: 0.6,
               ease: "power2.out",
             },
-            "card-2"
-          )
+            `card-${index + 1}`
+          );
+        });
 
-          .addLabel("card-3")
-          .to(
-            cards[1],
-            {
-              autoAlpha: 0,
-              y: -40,
-              scale: 0.94,
-              duration: 0.6,
-              ease: "power2.out",
-            },
-            "card-3"
-          )
-          .to(
-            cards[2],
-            {
-              autoAlpha: 1,
-              y: 0,
-              scale: 1,
-              duration: 0.6,
-              ease: "power2.out",
-            },
-            "card-3"
-          )
-
-          .addLabel("end");
+        tl.addLabel("end");
       });
     }, sectionRef);
 
+    const refreshTimer = window.setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 1000);
+
     return () => {
+      window.clearTimeout(refreshTimer);
       mm?.revert();
       ctx.revert();
     };
@@ -171,19 +175,19 @@ export default function SelectedWorks() {
             </div>
           </div>
 
-          {/* Desktop normal cards - no pinned effect */}
-          <div className="hidden gap-5 md:grid md:grid-cols-3">
+          {/* Desktop 6 cards */}
+          <div className="hidden gap-5 md:grid md:grid-cols-2 lg:grid-cols-3">
             {works.map((work, index) => (
               <button
                 key={work.title}
                 onClick={() => setActiveVideo(work.vimeoUrl)}
-                className="group relative h-[460px] overflow-hidden rounded-3xl bg-black text-left text-white"
+                className="group relative h-[420px] overflow-hidden rounded-3xl bg-black text-left text-white"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#050505] via-[#222222] to-[#8a8a8a]" />
                 <div className="absolute inset-0 bg-black/25 transition-colors duration-300 group-hover:bg-black/10" />
 
                 <span className="absolute right-6 top-6 text-7xl font-light text-white/10">
-                  0{index + 1}
+                  {String(index + 1).padStart(2, "0")}
                 </span>
 
                 <div className="absolute left-6 top-6 flex h-12 w-12 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:scale-110">
@@ -212,7 +216,7 @@ export default function SelectedWorks() {
             ))}
           </div>
 
-          {/* Mobile pinned scroll effect only */}
+          {/* Mobile pinned 6 video effect */}
           <div ref={mobilePinRef} className="relative h-[560px] md:hidden">
             <div className="relative h-[480px]">
               {works.map((work, index) => (
@@ -225,7 +229,7 @@ export default function SelectedWorks() {
                   <div className="absolute inset-0 bg-black/25" />
 
                   <span className="absolute right-6 top-6 text-7xl font-light text-white/10">
-                    0{index + 1}
+                    {String(index + 1).padStart(2, "0")}
                   </span>
 
                   <div className="absolute left-6 top-6 flex h-12 w-12 items-center justify-center rounded-full bg-white text-black">
