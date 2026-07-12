@@ -3,14 +3,14 @@ import { Mail, Phone, ExternalLink, ArrowUpRight } from "lucide-react";
 const contactLinks = [
   {
     label: "Email",
-    value: "hello@example.com",
-    href: "mailto:hello@example.com",
+    value: "apgmachintha@gmail.com",
+    href: "mailto:apgmachintha@gmail.com",
     icon: Mail,
   },
   {
     label: "WhatsApp",
-    value: "+94 76 000 0000",
-    href: "https://wa.me/94760000000",
+    value: "+94 74 345 3312",
+    href: "https://wa.me/0743453312",
     icon: Phone,
   },
   {
@@ -39,7 +39,7 @@ export default function Footer() {
             </div>
 
             <a
-              href="https://wa.me/94760000000"
+              href="https://wa.me/0743453312"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex w-fit items-center gap-3 rounded-full bg-white px-8 py-4 text-sm font-medium text-black transition-colors duration-300 hover:bg-white/80"

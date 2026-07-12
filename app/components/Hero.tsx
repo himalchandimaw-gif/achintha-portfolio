@@ -19,15 +19,15 @@ function InstagramIcon() {
   );
 }
 
-function YouTubeIcon() {
+function LinkedInIcon() {
   return (
     <svg
-      width="21"
-      height="21"
+      width="18"
+      height="18"
       viewBox="0 0 24 24"
       fill="currentColor"
     >
-      <path d="M23.5 6.2s-.2-1.7-.9-2.4c-.9-.9-1.9-.9-2.3-1C17.1 2.5 12 2.5 12 2.5s-5.1 0-8.3.3c-.5.1-1.5.1-2.3 1C.7 4.5.5 6.2.5 6.2S.2 8.1.2 10v1.8c0 1.9.3 3.8.3 3.8s.2 1.7.9 2.4c.9.9 2.1.9 2.6 1 1.9.2 8 .3 8 .3s5.1 0 8.3-.3c.5-.1 1.5-.1 2.3-1 .7-.7.9-2.4.9-2.4s.3-1.9.3-3.8V10c0-1.9-.3-3.8-.3-3.8ZM9.7 14.4V7.9l6.3 3.3-6.3 3.2Z" />
+      <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.32 8.03h4.36V23H.32V8.03ZM8.03 8.03h4.18v2.04h.06c.58-1.1 2-2.26 4.12-2.26 4.41 0 5.22 2.9 5.22 6.67V23h-4.36v-7.55c0-1.8-.03-4.12-2.51-4.12-2.51 0-2.9 1.96-2.9 3.99V23H8.03V8.03Z" />
     </svg>
   );
 }
@@ -85,7 +85,7 @@ export default function Hero() {
           {/* Social Icons */}
           <div className="mt-14 flex items-center gap-4 text-white md:mt-24">
             <a
-              href="https://instagram.com/"
+              href="https://www.instagram.com/apgmachintha?igsh=NHd2YnI3amlpcm15"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -95,17 +95,17 @@ export default function Hero() {
             </a>
 
             <a
-              href="https://youtube.com/"
+              href="https://www.linkedin.com/in/apgm-achintha/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition hover:bg-white hover:text-black"
             >
-              <YouTubeIcon />
+              <LinkedInIcon/>
             </a>
 
             <a
-              href="mailto:hello@example.com"
+              href="mailto:apgmachintha@gmail.com"
               aria-label="Email"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition hover:bg-white hover:text-black"
             >

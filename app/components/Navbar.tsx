@@ -36,6 +36,9 @@ export default function Navbar() {
           <a href="#process" className="hover:text-white/70">
             PROCESS
           </a>
+          <a href="#pricing" className="hover:text-white/70">
+  PRICING
+</a>
         </nav>
 
         {/* CTA */}

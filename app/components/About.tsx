@@ -39,7 +39,7 @@ export default function About() {
         <div className="gsap-fade-up relative overflow-hidden rounded-3xl bg-black">
           <div className="relative h-[520px] w-full">
             <Image
-              src="/images/about-client.jpg"
+              src="/images/1.jpg"
               alt="Video editor portrait"
               fill
               className="object-cover grayscale"
