@@ -261,7 +261,7 @@ export default function SelectedWorks() {
                   </div>
 
                   <div className="absolute inset-x-6 bottom-8">
-                    <p className="mb-4 text-[11px] font-medium tracking-[0.25em] text-white/60">
+                   {/*  <p className="mb-4 text-[11px] font-medium tracking-[0.25em] text-white/60">
                       {work.category}
                     </p>
 
@@ -271,7 +271,7 @@ export default function SelectedWorks() {
 
                     <p className="mt-5 max-w-sm text-sm leading-6 text-white/65">
                       {work.description}
-                    </p>
+                    </p> */}
 
                     <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-white/20 bg-black/20 px-5 py-3 text-xs font-medium text-white/80 backdrop-blur-sm">
                       Watch Project
