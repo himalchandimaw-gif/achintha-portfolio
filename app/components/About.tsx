@@ -35,7 +35,7 @@ export default function About() {
           </p>
 
           <h2 className="max-w-3xl text-3xl font-medium leading-tight tracking-tight text-black md:text-5xl">
-            Creating clean, cinematic edits for creators, brands and personal
+            Creating clean, Cinematic edits for Creators, Brands and Personal
             stories.
           </h2>
 
