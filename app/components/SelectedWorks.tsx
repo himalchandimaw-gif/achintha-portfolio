@@ -10,37 +10,43 @@ const works = [
     title: "Cinematic Edit 01",
     category: "Video Editing",
     description: "Clean cinematic pacing, mood, music sync and polished cuts.",
-    vimeoUrl: "https://player.vimeo.com/video/1128626230",
+    image: "/images/work-1.jpg",
+    vimeoUrl: "https://player.vimeo.com/video/1142959111",
   },
   {
     title: "Creative Visual Edit",
     category: "Commercial / Social",
     description: "A sharp visual edit crafted for social media and brand impact.",
-    vimeoUrl: "https://player.vimeo.com/video/1068741094",
+    image: "/images/work-2.jpg",
+    vimeoUrl: "https://player.vimeo.com/video/1129230015",
   },
   {
     title: "Storytelling Edit",
     category: "Portfolio Work",
     description: "A smooth story-driven edit with clean structure and emotion.",
-    vimeoUrl: "https://player.vimeo.com/video/1129230015",
+    image: "/images/work-3.jpg",
+    vimeoUrl: "https://player.vimeo.com/video/1128626230",
   },
   {
     title: "Short Form Edit",
     category: "Short Form",
     description: "Fast-paced vertical content designed for attention and retention.",
+    image: "/images/work-4.jpg",
     vimeoUrl: "https://player.vimeo.com/video/1142958964",
   },
   {
     title: "Personal Brand Edit",
     category: "Brand Content",
     description: "Clean personal brand visuals with strong structure and premium feel.",
-    vimeoUrl: "https://player.vimeo.com/video/1089457410",
+    image: "/images/work-5.jpg",
+    vimeoUrl: "https://player.vimeo.com/video/1068741094",
   },
   {
     title: "Social Media Edit",
     category: "Content Creation",
     description: "Modern social media content edited for clarity, flow and engagement.",
-    vimeoUrl: "https://player.vimeo.com/video/1142959111",
+    image: "/images/work-6.jpg",
+    vimeoUrl: "https://player.vimeo.com/video/1089457410",
   },
 ];
 
@@ -175,7 +181,7 @@ export default function SelectedWorks() {
             </div>
           </div>
 
-          {/* Desktop 6 cards */}
+          {/* Desktop 6 thumbnail cards */}
           <div className="hidden gap-5 md:grid md:grid-cols-2 lg:grid-cols-3">
             {works.map((work, index) => (
               <button
@@ -183,19 +189,31 @@ export default function SelectedWorks() {
                 onClick={() => setActiveVideo(work.vimeoUrl)}
                 className="group relative h-[420px] overflow-hidden rounded-3xl bg-black text-left text-white"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#050505] via-[#222222] to-[#8a8a8a]" />
-                <div className="absolute inset-0 bg-black/25 transition-colors duration-300 group-hover:bg-black/10" />
+                {/* Thumbnail */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${work.image})` }}
+                />
 
-                <span className="absolute right-6 top-6 text-7xl font-light text-white/10">
+                {/* Black and white effect */}
+                <div className="absolute inset-0 grayscale" />
+
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-black/45 transition-colors duration-300 group-hover:bg-black/25" />
+
+                {/* Number */}
+                <span className="absolute right-6 top-6 text-7xl font-light text-white/15">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
+                {/* Play icon */}
                 <div className="absolute left-6 top-6 flex h-12 w-12 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:scale-110">
                   <Play size={16} fill="black" />
                 </div>
 
+                {/* Content */}
                 <div className="absolute inset-x-6 bottom-8">
-                  <p className="mb-4 text-[11px] font-medium tracking-[0.25em] text-white/50">
+                  {/* <p className="mb-4 text-[11px] font-medium tracking-[0.25em] text-white/60">
                     {work.category}
                   </p>
 
@@ -203,11 +221,11 @@ export default function SelectedWorks() {
                     {work.title}
                   </h3>
 
-                  <p className="mt-5 max-w-sm text-sm leading-6 text-white/55">
+                  <p className="mt-5 max-w-sm text-sm leading-6 text-white/65">
                     {work.description}
-                  </p>
+                  </p> */}
 
-                  <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-white/15 px-5 py-3 text-xs font-medium text-white/70 transition-colors duration-300 group-hover:bg-white group-hover:text-black">
+                  <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-white/20 bg-black/20 px-5 py-3 text-xs font-medium text-white/80 backdrop-blur-sm transition-colors duration-300 group-hover:bg-white group-hover:text-black">
                     Watch Project
                     <Play size={13} fill="currentColor" />
                   </div>
@@ -216,7 +234,7 @@ export default function SelectedWorks() {
             ))}
           </div>
 
-          {/* Mobile pinned 6 video effect */}
+          {/* Mobile pinned 6 thumbnail effect */}
           <div ref={mobilePinRef} className="relative h-[560px] md:hidden">
             <div className="relative h-[480px]">
               {works.map((work, index) => (
@@ -225,10 +243,16 @@ export default function SelectedWorks() {
                   onClick={() => setActiveVideo(work.vimeoUrl)}
                   className="mobile-pin-card absolute inset-0 overflow-hidden rounded-3xl bg-black text-left text-white"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#050505] via-[#222222] to-[#8a8a8a]" />
-                  <div className="absolute inset-0 bg-black/25" />
+                  {/* Thumbnail */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: `url(${work.image})` }}
+                  />
 
-                  <span className="absolute right-6 top-6 text-7xl font-light text-white/10">
+                  {/* Dark overlay */}
+                  <div className="absolute inset-0 bg-black/50" />
+
+                  <span className="absolute right-6 top-6 text-7xl font-light text-white/15">
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
@@ -237,7 +261,7 @@ export default function SelectedWorks() {
                   </div>
 
                   <div className="absolute inset-x-6 bottom-8">
-                    <p className="mb-4 text-[11px] font-medium tracking-[0.25em] text-white/50">
+                    <p className="mb-4 text-[11px] font-medium tracking-[0.25em] text-white/60">
                       {work.category}
                     </p>
 
@@ -245,11 +269,11 @@ export default function SelectedWorks() {
                       {work.title}
                     </h3>
 
-                    <p className="mt-5 max-w-sm text-sm leading-6 text-white/55">
+                    <p className="mt-5 max-w-sm text-sm leading-6 text-white/65">
                       {work.description}
                     </p>
 
-                    <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-white/15 px-5 py-3 text-xs font-medium text-white/70">
+                    <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-white/20 bg-black/20 px-5 py-3 text-xs font-medium text-white/80 backdrop-blur-sm">
                       Watch Project
                       <Play size={13} fill="currentColor" />
                     </div>
