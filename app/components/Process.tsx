@@ -1,22 +1,28 @@
+import Image from "next/image";
+
 const steps = [
   {
     number: "01",
     title: "Brief",
+    icon: "/icons/brief.png",
     text: "We discuss the project goal, style, references, footage details and final output format.",
   },
   {
     number: "02",
     title: "Edit",
+    icon: "/icons/edit2.png",
     text: "The raw footage is shaped into a clean story with pacing, cuts, music and visual flow.",
   },
   {
     number: "03",
     title: "Review",
+    icon: "/icons/review.png",
     text: "You review the first version and share feedback for changes, timing or visual direction.",
   },
   {
     number: "04",
     title: "Final Delivery",
+    icon: "/icons/final-delivery.png",
     text: "The final video is exported in the required format, ready for social media, YouTube or campaigns.",
   },
 ];
@@ -46,14 +52,22 @@ export default function Process() {
           {steps.map((step) => (
             <div
               key={step.number}
-              className="gsap-card transform-gpu rounded-3xl border border-black/10 bg-[#f5f5f5] p-8 transition-colors duration-300 hover:bg-black hover:text-white"
+              className="gsap-card group transform-gpu rounded-3xl border border-black/10 bg-[#f5f5f5] p-8 transition-colors duration-300 hover:bg-black hover:text-white"
             >
-              <div className="mb-16 flex items-center justify-between">
-                <span className="text-sm font-medium text-black/40 transition-colors duration-300 group-hover:text-white/40">
+              <div className="mb-12 flex items-start justify-between">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-black/10 bg-white transition-colors duration-300 group-hover:border-white/10 group-hover:bg-white">
+                  <Image
+                    src={step.icon}
+                    alt={`${step.title} icon`}
+                    width={34}
+                    height={34}
+                    className="object-contain grayscale"
+                  />
+                </div>
+
+                <span className="text-sm font-medium text-black/35 transition-colors duration-300 group-hover:text-white/35">
                   {step.number}
                 </span>
-
-                <div className="h-2 w-2 rounded-full bg-black/30 transition-colors duration-300 group-hover:bg-white/50" />
               </div>
 
               <h3 className="text-2xl font-medium tracking-tight">

@@ -39,7 +39,7 @@ const works = [
     category: "Brand Content",
     description: "Clean personal brand visuals with strong structure and premium feel.",
     image: "/images/work-5.jpg",
-    vimeoUrl: "https://player.vimeo.com/video/1068741094",
+    vimeoUrl: "https://player.vimeo.com/video/1068740315",
   },
   {
     title: "Social Media Edit",
