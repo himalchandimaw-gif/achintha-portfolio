@@ -10,7 +10,7 @@ const contactLinks = [
   {
     label: "WhatsApp",
     value: "+94 74 345 3312",
-    href: "https://wa.me/0743453312",
+    href: "https://wa.me/+94743453312",
     icon: Phone,
   },
   {
