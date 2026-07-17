@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import SelectedWorks from "./components/SelectedWorks";
 import About from "./components/About";
+import LogoMarquee from "./components/LogoMarquee";
 import Services from "./components/Services";
 import Process from "./components/Process";
 import Pricing from "./components/Pricing";
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <SelectedWorks />
       <About />
+      <LogoMarquee />
       <Services />
       <Process />
       <Pricing />
