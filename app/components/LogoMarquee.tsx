@@ -64,17 +64,17 @@ export default function LogoMarquee() {
           <div className="logo-marquee flex w-max items-center gap-14">
             {repeatedLogos.map((logo, index) => (
               <div
-                key={`${logo.name}-${index}`}
-                className="flex h-16 w-36 shrink-0 items-center justify-center opacity-45 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
-              >
-                <Image
-                  src={logo.src}
-                  alt={logo.name}
-                  width={140}
-                  height={64}
-                  className="max-h-12 w-auto object-contain"
-                />
-              </div>
+  key={`${logo.name}-${index}`}
+  className="flex h-24 w-52 shrink-0 items-center justify-center opacity-45 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
+>
+  <Image
+    src={logo.src}
+    alt={logo.name}
+    width={210}
+    height={100}
+    className="max-h-20 w-auto object-contain"
+  />
+</div>
             ))}
           </div>
         </div>

@@ -54,7 +54,7 @@ html {
   backface-visibility: hidden;
 }
 .logo-marquee {
-  animation: logo-marquee 26s linear infinite;
+  animation: logo-marquee 45s linear infinite;
 }
 
 .logo-marquee:hover {
