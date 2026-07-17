@@ -44,7 +44,7 @@ export default function LogoMarquee() {
             </p>
 
             <h2 className="max-w-xl text-2xl font-medium tracking-tight md:text-4xl">
-              Brands and creators I&apos;ve worked with.
+              Brands and Creators I&apos;ve worked with.
             </h2>
           </div>
 
